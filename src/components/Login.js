@@ -23,13 +23,11 @@ export default function Login() {
     }
     return (
         <div className="login-buttons">
+            <h1 className='gruham-title'> Gruham </h1>
+            <span className='subtitle'>Please sign up instantly with Google</span>
             <button className="login-provider-button" onClick={signInWithGoogle}>
-                <img src="https://img.icons8.com/ios-filled/50/000000/google-logo.png" alt="google icon" />
+                <img src="https://img.icons8.com/plasticine/50/000000/google-logo.png" />
                 <span> Continue with Google</span>
-            </button>
-            <button className="login-provider-button" onClick={logOut}>
-                <img src="https://img.icons8.com/ios-filled/50/000000/google-logo.png" alt="google icon" />
-                <span> logout</span>
             </button>
         </div>
     );
