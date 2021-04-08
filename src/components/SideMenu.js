@@ -4,17 +4,19 @@ import CardItem from '../components/CardItem';
 import Paginate from './Paginate';
 import axios from 'axios';
 
-function SideMenu({ code }) {
+function SideMenu(props) {
     const [houses, setHouses] = useState([])
     const [showHouses, setShowHouses] = useState(false)
-
+    console.log('SIDEE', props)
+    const code = props.match.params.code
+    // return
     const sortFun = (val) => {
         // parentCallback(val)
     }
 
-    const checkFun = () => {
-        console.log('here')
-    }
+    // const checkFun = () => {
+    //     console.log('here')
+    // }
 
     const filterBedrooms = (val, checked) => {
 

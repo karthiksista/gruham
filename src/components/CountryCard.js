@@ -1,11 +1,10 @@
+import { Link, Redirect } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+
 import { Button } from 'reactstrap'
-import { Link } from 'react-router-dom'
-import React from 'react'
 import { countries } from '../utils/countries'
 
 function CountryCard({ countryCode, parentCallback }) {
-    // console.log(selectedCountry, 'SELECTED')
-    console.log('CountryCard render ......')
 
     const getCountry = (code) => {
         parentCallback(code)

@@ -11,13 +11,26 @@ import {
     NavbarToggler,
     UncontrolledDropdown
 } from 'reactstrap';
+import React, { useContext, useEffect, useState } from 'react'
 
-import React from 'react'
-import { useState } from 'react'
+import { Redirect } from 'react-router';
+import { UserContext } from '../services/UserProvider'
+import { logOut } from '../services/firebase';
 
 function Header({ brandName, places }) {
     console.log('Header render ......')
     const [isOpen, setIsOpen] = useState(false);
+    const [userDetails, setUserDetails] = useState();
+    const loggedInUser = useContext(UserContext)
+
+
+    useEffect(() => {
+        console.log('USER', loggedInUser)
+        if (loggedInUser) {
+            setUserDetails(loggedInUser)
+            console.log('innnn', loggedInUser)
+        }
+    }, [loggedInUser])
 
     const toggle = () => setIsOpen(!isOpen);
     return (
@@ -36,18 +49,16 @@ function Header({ brandName, places }) {
                     </Nav>
                     <UncontrolledDropdown >
                         <DropdownToggle nav caret>
-                            Login/Sign Up
+                            {userDetails?.displayName}
                         </DropdownToggle>
                         <DropdownMenu right>
                             <DropdownItem>
-                                Option 1
-                         </DropdownItem>
-                            <DropdownItem>
-                                Option 2
-                        </DropdownItem>
+                                {userDetails?.email}
+                            </DropdownItem>
+
                             <DropdownItem divider />
-                            <DropdownItem>
-                                Reset
+                            <DropdownItem onClick={logOut}>
+                                Logout
                         </DropdownItem>
                         </DropdownMenu>
                     </UncontrolledDropdown>
