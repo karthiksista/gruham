@@ -1,14 +1,14 @@
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import React, { useState } from 'react'
 
+import { BASE_URL } from '../environment';
 import axios from 'axios'
 
 function Paginate({ paginatedCallback, code, bedrooms, sortValue }) {
-    console.log('Header Render ...')
     const [pageValue, setPageValue] = useState(1)
 
     const paginateUI = async (code, val) => {
-        const result = await axios.get(`http://localhost:4000/country/${code}?page=${val}&sort=${sortValue}&roomType=${bedrooms}`)
+        const result = await axios.get(`${BASE_URL}/country/${code}?page=${val}&sort=${sortValue}&roomType=${bedrooms}`)
         const data = result.data
         setPageValue(parseInt(val))
         paginatedCallback(data)

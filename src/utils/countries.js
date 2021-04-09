@@ -9,7 +9,7 @@ export const countries = [
     },
     {
         "code": "US",
-        "country": "United States"
+        "country": "USA"
     },
     {
         "code": "TR",
@@ -21,7 +21,7 @@ export const countries = [
     },
     {
         "code": "HK",
-        "country": "Hong Kong"
+        "country": "HK"
     },
     {
         "code": "ES",

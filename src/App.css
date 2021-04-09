@@ -9,7 +9,8 @@ html,
 body,
 #root {
   height: 100%;
-  background-color: whitesmoke;
+  background-color: rgb(246, 254, 255);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .Card-Style {
@@ -29,22 +30,94 @@ body,
 .price {
   color: rgb(16, 124, 16);
   font-weight: bolder;
-  padding-left: 85px;
+  /* padding-left: 85px; */
 }
 .text-muted {
   display: flex;
   justify-content: center;
 }
+.btn-grad {
+  background-image: linear-gradient(to left, #fff, #076585);
+}
+.btn-grad {
+  /* margin: 10px; */
+  /* padding: 15px 45px; */
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  /* display: block; */
+  height: 100%;
+  width: 170px;
+  margin: 10px;
+  padding: 20px;
+}
 
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-grad-active {
+  background-image: linear-gradient(to top, rgb(122, 154, 175), #01384e);
+}
+.btn-grad-active {
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  /* display: block; */
+  height: 100%;
+  width: 170px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.btn-grad-details {
+  background-image: linear-gradient(to left, #fff, #076585);
+}
+.btn-grad-details {
+  /* margin: 10px; */
+  /* padding: 15px 45px; */
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(255 255 255);
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  /* display: block; */
+  height: 70%;
+  width: 170px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.btn-grad-details:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 .code-buttons {
   height: 100%;
   width: 100px;
   margin: 10px;
+  padding: 20px;
+}
+.code-buttons:hover {
+  background-color: cornsilk;
 }
 .card-style {
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 50%;
   align-self: center;
   margin-top: 100px;
 }
@@ -62,13 +135,28 @@ body,
   align-items: center;
   display: flex;
 }
-
+.gruh-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.details-room {
+  display: flex;
+  justify-content: center;
+}
+.gruham-title-logo {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  align-self: center;
+}
 /* 
 ---------------------
 */
 .login-buttons {
   height: 100%;
-  justify-content: center;
+  justify-content: start;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -82,4 +170,137 @@ body,
   align-items: center;
   align-items: center;
   align-self: center;
+}
+
+.Iam {
+  padding: 2em 5em;
+  font: normal 40px/50px Montserrat, sans-serif;
+  color: #999;
+  display: flex;
+  align-self: center;
+}
+.Iam p {
+  height: 50px;
+  float: left;
+  margin-right: 0.3em;
+}
+.Iam b {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  top: 40px;
+}
+.Iam .innerIam {
+  display: inline-block;
+  color: #076585;
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+
+  /*animation*/
+  -webkit-animation: move 5s;
+  -moz-animation: move 5s;
+  -ms-animation: move 5s;
+  -o-animation: move 5s;
+  animation: move 5s;
+  /*animation-iteration-count*/
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  /*animation-delay*/
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+@keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+
+@-webkit-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+@-moz-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+@-o-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+@keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
 }

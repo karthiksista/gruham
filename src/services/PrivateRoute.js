@@ -5,11 +5,9 @@ import { UserContext } from './UserProvider'
 
 function PrivateRoute({ component: RouteComponent, ...rest }) {
     let loggedInUser = useContext(UserContext);
-    console.log({ loggedInUser }, '!@&*#^*@&#')
     useEffect(() => {
         if (loggedInUser) {
             // setredirect('/')
-            console.log('YAYYY', loggedInUser)
             localStorage.setItem('displayName', loggedInUser.displayName)
             localStorage.setItem('email', loggedInUser.email)
         } else {
@@ -17,7 +15,6 @@ function PrivateRoute({ component: RouteComponent, ...rest }) {
                 loggedInUser = {}
                 loggedInUser['displayName'] = localStorage.getItem('displayName')
                 loggedInUser['email'] = localStorage.getItem('email')
-                console.log(loggedInUser, 'QPQPQPQP')
             }
         }
     }, [loggedInUser])

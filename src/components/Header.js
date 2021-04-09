@@ -16,19 +16,17 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Redirect } from 'react-router';
 import { UserContext } from '../services/UserProvider'
 import { logOut } from '../services/firebase';
+import logo from './gruham.png'
 
 function Header({ brandName, places }) {
-    console.log('Header render ......')
     const [isOpen, setIsOpen] = useState(false);
     const [userDetails, setUserDetails] = useState();
     const loggedInUser = useContext(UserContext)
 
 
     useEffect(() => {
-        console.log('USER', loggedInUser)
         if (loggedInUser) {
             setUserDetails(loggedInUser)
-            console.log('innnn', loggedInUser)
         }
     }, [loggedInUser])
 
@@ -36,7 +34,7 @@ function Header({ brandName, places }) {
     return (
         <div className='header'>
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">{brandName}</NavbarBrand>
+                <NavbarBrand href="/"> <span>Gruham</span></NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>

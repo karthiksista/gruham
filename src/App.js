@@ -12,9 +12,6 @@ import PrivateRoute from './services/PrivateRoute';
 import UserProvider from './services/UserProvider';
 
 function App() {
-  console.log('APP Render ...')
-
-
   return (
     <UserProvider>
       <Router>
@@ -24,9 +21,6 @@ function App() {
               <Login />
             </Route>
             <PrivateRoute exact path='/dashboard' component={Dashboard} />
-            {/* <Route exact path='/dashboard'>
-              <Dashboard />
-            </Route> */}
           </div>
         </Switch>
       </Router>

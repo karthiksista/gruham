@@ -1,11 +1,9 @@
-import { Button, Card, CardBody, CardFooter, CardText, CardTitle, Col, Row } from 'reactstrap'
+import { Button, Card, CardBody, CardFooter, CardImg, CardSubtitle, CardText, CardTitle, Col, Container, Row } from 'reactstrap'
 import React, { useEffect, useState } from 'react'
 
-function CardItem({ image, title, cardText, address, price }) {
-    console.log('Card Item render ......')
+function CardItem({ image, title, cardText, address, price, beds, bathrooms, reviews, guests, bedrooms }) {
     const [truncText, setTruncText] = useState('')
     const [truncText100, setTruncText100] = useState('')
-
     const [showMore, setShowMore] = useState(false)
 
     useEffect(() => {
@@ -15,15 +13,14 @@ function CardItem({ image, title, cardText, address, price }) {
 
     return (
         <>
-            <Card className='Card-Style'>
-                <img style={{ height: '30%', width: '100%' }} src={image} alt="Card" />
-                <CardBody className='Card-Body'>
-                    <CardTitle tag="h5">{title}</CardTitle>
-                    <CardText>{!showMore ? truncText : truncText100}</CardText>
-                    {!showMore ?
-                        <p className='show' onClick={() => setShowMore(true)}>Show More...</p>
-                        : <p className='show' onClick={() => setShowMore(false)}> Show Less...</p>
-                    }
+            <Card>
+                <img style={{ height: '30%', width: '100%' }} src={image ? image : 'loading...'} alt="Card" />
+                <CardBody className='gruh-card-body' >
+                    <CardTitle tag="h5">{title ? title : 'loading...'}  </CardTitle>
+                    <small>{reviews} reviews </small>
+                    <Row xs='1' className='details-room'>
+                        {`${guests} Guests allowed, ${bedrooms} Bedrooms, ${bathrooms} Bath, ${beds} Beds`}
+                    </Row>
                     <Row xs="2">
                         <Col>
                             <b><u>Address:</u></b> <br />
@@ -33,13 +30,13 @@ function CardItem({ image, title, cardText, address, price }) {
                         </Col>
                         <Col className='price'>
                             Price: <br />
-                            {`$ ${price}`}
+                            {`$ ${price}/night`}
                         </Col>
 
                     </Row>
                 </CardBody>
                 <CardFooter className="text-muted">
-                    <Button color='primary' className='footer-button'>View Details</Button>
+                    <Button className='btn-grad-details'>View Details</Button>
                 </CardFooter>
             </Card>
 

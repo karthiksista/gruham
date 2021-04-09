@@ -9,7 +9,6 @@ export default (props) => {
     const [user, setuser] = useState(null)
     useEffect(() => {
         auth.onAuthStateChanged(async (userDetails) => {
-            console.log('here', userDetails)
             if (userDetails !== null) {
                 const loggedInDetails = { ...userDetails };
                 setuser({
@@ -17,7 +16,6 @@ export default (props) => {
                     email: loggedInDetails.email
                 })
             } else if (userDetails === null) {
-                console.log('FINALLY', user)
                 setuser(null)
             }
         })
