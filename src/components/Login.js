@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 
+import { Button } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from '../services/UserProvider'
 import foo from './gruham.png'
@@ -37,10 +38,10 @@ export default function Login() {
 
             </div>
             <img className='gruham-title-logo' src={foo} />
-            <button className="login-provider-button" onClick={signInWithGoogle}>
+            <Button className="login-provider-button" onClick={signInWithGoogle}>
                 <img src="https://img.icons8.com/plasticine/50/000000/google-logo.png" />
                 <span>  Sign up/Login instantly with Google</span>
-            </button>
+            </Button>
         </div>
     );
 }
