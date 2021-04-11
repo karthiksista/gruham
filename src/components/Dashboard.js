@@ -7,15 +7,22 @@ import {
 
 import CountryCard from './CountryCard';
 import Header from './Header'
+import HouseDetails from './HouseDetails';
 import PrivateRoute from '../services/PrivateRoute';
 import { Redirect } from 'react-router-dom';
 import SideMenu from './SideMenu'
 import { UserContext } from '../services/UserProvider'
 
-function Dashboard({ code }) {
+function Dashboard(props) {
+    console.log(props, 'PRops')
     const [countryCode, setCountryCode] = useState();
+    const [hideCountryCard, setHideCountryCard] = useState(true);
+
     const handleCallback = (code) => {
         setCountryCode(code)
+    }
+    const handleCb = (conditionalRender) => {
+        console.log('conditionalRender', conditionalRender)
     }
     return (
         <Router>
@@ -23,7 +30,9 @@ function Dashboard({ code }) {
                 <div >
                     <Header user brandName='Gruham' places='Places' />
                     <CountryCard countryCode={countryCode} parentCallback={handleCallback} />
-                    <PrivateRoute path='/countries/:code' exact code={countryCode} strict component={SideMenu} code={countryCode} />
+                    <PrivateRoute exact path='/countries/:code' code={countryCode} strict component={SideMenu} />
+                    <PrivateRoute exact path='/countries/:code/:_id' strict component={HouseDetails} />
+
                 </div>
             </Switch>
         </Router>

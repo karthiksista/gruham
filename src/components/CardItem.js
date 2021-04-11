@@ -1,7 +1,10 @@
 import { Button, Card, CardBody, CardFooter, CardImg, CardSubtitle, CardText, CardTitle, Col, Container, Row } from 'reactstrap'
 import React, { useEffect, useState } from 'react'
+import { Router, Switch } from 'react-router'
 
-function CardItem({ image, title, cardText, address, price, beds, bathrooms, reviews, guests, bedrooms }) {
+import { Link } from 'react-router-dom'
+
+function CardItem({ _id, image, title, cardText, address, price, beds, bathrooms, reviews, guests, bedrooms, code }) {
     const [truncText, setTruncText] = useState('')
     const [truncText100, setTruncText100] = useState('')
     const [showMore, setShowMore] = useState(false)
@@ -36,9 +39,12 @@ function CardItem({ image, title, cardText, address, price, beds, bathrooms, rev
                     </Row>
                 </CardBody>
                 <CardFooter className="text-muted">
-                    <Button className='btn-grad-details'>View Details</Button>
+                    <Link to={`/countries/${code}/${_id}`} >
+                        <Button className='btn-grad-details'>View Details</Button>
+                    </Link>
                 </CardFooter>
             </Card>
+
 
         </>
     )

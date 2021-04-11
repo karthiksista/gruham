@@ -10,13 +10,13 @@ function SideMenu(props) {
     const [houses, setHouses] = useState([])
     const [showHouses, setShowHouses] = useState(false)
     const [sortVal, setSortVal] = useState('asc')
-    const [bedroomsFilter, setBedroomsFilter] = useState(1)
+    const [bedroomsFilter, setBedroomsFilter] = useState([1])
     const code = props.match.params.code
     const sortFun = async (val) => {
         let variables = {
             params: {
                 sort: val,
-                roomtype: Number(bedroomsFilter)
+                roomtype: [...bedroomsFilter]
             }
         }
         const result = await axios.get(`${BASE_URL}/country/${code}`, variables)
@@ -25,15 +25,36 @@ function SideMenu(props) {
     }
 
     const filterBedrooms = async (val, checked) => {
+        let bedroomsArray = [...bedroomsFilter]
+        console.log('SY=TART', bedroomsArray)
         if (checked) {
+            bedroomsArray.push(Number(val))
+            bedroomsArray.sort((a, b) => a - b)
+            console.log(bedroomsArray, 'BAR')
             let variables = {
                 params: {
                     sort: sortVal,
-                    roomtype: Number(val)
+                    roomtype: [...bedroomsArray]
                 }
             }
+            setBedroomsFilter(bedroomsArray)
             const result = await axios.get(`${BASE_URL}/country/${code}`, variables)
-            setBedroomsFilter(val)
+            setHouses(result.data.posts)
+        } else {
+            bedroomsArray.forEach((ele, i) => {
+                if (ele == val) {
+                    bedroomsArray.splice(i, 1)
+                }
+            })
+            let variables = {
+                params: {
+                    sort: sortVal,
+                    roomtype: [...bedroomsArray]
+                }
+            }
+            console.log(bedroomsArray, 'incufh')
+            setBedroomsFilter(bedroomsArray)
+            const result = await axios.get(`${BASE_URL}/country/${code}`, variables)
             setHouses(result.data.posts)
         }
     }
@@ -46,7 +67,7 @@ function SideMenu(props) {
             let variables = {
                 params: {
                     sort: 'asc',
-                    roomtype: 1
+                    roomtype: [1]
                 }
             }
             const result = await axios.get(`${BASE_URL}/country/${code}`, variables)
@@ -78,7 +99,7 @@ function SideMenu(props) {
                     <Row sm='2'>
                         {houses.length ? houses.map((house) => {
                             return (
-                                <CardItem key={house.name} image={house.images.picture_url} title={house.name} cardText={house.description} address={house.address} price={house.price} beds={house.beds} bathrooms={house.bathrooms} reviews={house.number_of_reviews} guests={house.guests_included} bedrooms={house.bedrooms} />
+                                <CardItem _id={house._id} image={house.images.picture_url} title={house.name} cardText={house.description} address={house.address} price={house.price} beds={house.beds} bathrooms={house.bathrooms} reviews={house.number_of_reviews} guests={house.guests_included} bedrooms={house.bedrooms} code={code} />
                             )
                         }) : ('')}
                     </Row>

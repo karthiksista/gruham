@@ -26,12 +26,13 @@ function PrivateRoute({ component: RouteComponent, ...rest }) {
             return <Redirect to={'/login'} />
         }
     }
+    console.log(rest, 'RESR')
     return (
         <Route
             {...rest}
             render={(routeProps) =>
                 !!loggedInUser ? (
-                    <RouteComponent {...routeProps} />
+                    <RouteComponent {...routeProps}  {...rest} />
                 ) : (
                     <Redirect to={'/login'} />
                 )
