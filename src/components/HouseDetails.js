@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { BASE_URL } from '../environment'
 import React from 'react'
 import axios from 'axios'
+import bed from '../images/bed.svg'
 import clean from '../images/clean.svg'
 import home from '../images/home.svg'
 
@@ -122,7 +123,7 @@ function HouseDetails(props) {
                             </h4>
                         </Row>
                         <Row>
-                            <span>
+                            <span style={{ textAlign: 'left' }}>
                                 This host committed to Airbnb's 5-step enhanced cleaning process.
                             </span>
                         </Row>
@@ -133,10 +134,43 @@ function HouseDetails(props) {
             <Container className='details-container'>
                 <Col>
                     <Row>
-                        <span style={{ textAlign: 'left' }}>
-                            {houseDetails?.space}
-                        </span>
+                        <Col style={{ textAlign: 'left' }}>
+                            <span >
+                                {houseDetails?.space}
+                            </span>
+
+                        </Col>
                     </Row>
+                </Col>
+            </Container>
+
+            <Container className='details-container'>
+                <Col>
+                    <Row>
+                        <Col>
+                            <h4 className='details-title'>Sleeping arrangements</h4>
+                        </Col>
+
+                    </Row>
+                    <Col className='sleep-arrangements'>
+                        <Row>
+                            <Col>
+                                <img className='cleaning-img' src={bed} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <span className='details-title'> Bedroom </span>
+
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <span className='details-title'> 1 Real Bed </span>
+                            </Col>
+                        </Row>
+                    </Col>
+
                 </Col>
             </Container>
         </div>
