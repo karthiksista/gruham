@@ -4,7 +4,6 @@ import { Button } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from '../services/UserProvider'
 import foo from './gruham.png'
-import { logOut } from '../services/firebase';
 import { signInWithGoogle } from '../services/firebase';
 
 export default function Login() {
@@ -37,9 +36,9 @@ export default function Login() {
                 </b>
 
             </div>
-            <img className='gruham-title-logo' src={foo} />
+            <img className='gruham-title-logo' src={foo} alt='gruham' />
             <Button className="login-provider-button" onClick={signInWithGoogle}>
-                <img src="https://img.icons8.com/plasticine/50/000000/google-logo.png" />
+                <img src="https://img.icons8.com/plasticine/50/000000/google-logo.png" alt='google-logo' />
                 <span>  Sign up/Login instantly with Google</span>
             </Button>
         </div>

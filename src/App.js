@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom'
 
 import Dashboard from './components/Dashboard';
-import HouseDetails from './components/HouseDetails';
 import Login from './components/Login'
 import PrivateRoute from './services/PrivateRoute';
 import UserProvider from './services/UserProvider';

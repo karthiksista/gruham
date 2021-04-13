@@ -7,7 +7,6 @@ function PrivateRoute({ component: RouteComponent, ...rest }) {
     let loggedInUser = useContext(UserContext);
     useEffect(() => {
         if (loggedInUser) {
-            // setredirect('/')
             localStorage.setItem('displayName', loggedInUser.displayName)
             localStorage.setItem('email', loggedInUser.email)
         } else {
@@ -26,7 +25,6 @@ function PrivateRoute({ component: RouteComponent, ...rest }) {
             return <Redirect to={'/login'} />
         }
     }
-    console.log(rest, 'RESR')
     return (
         <Route
             {...rest}

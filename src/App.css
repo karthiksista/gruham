@@ -121,7 +121,13 @@ body,
   margin: 10px;
   padding: 10px;
 }
-
+.country-card-display {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-self: center; */
+  border: 1px solid red;
+  /* align-self: center; */
+}
 .btn-grad-details:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
@@ -190,6 +196,28 @@ body,
     padding: 20px;
     width: 40%;
   }
+}
+.show {
+  /* cursor: ; */
+  text-decoration: none !important;
+  color: black !important;
+}
+.filter-operators {
+  padding: 10px;
+  margin: 10px;
+  height: 42px;
+  width: 40px;
+  border-radius: 100%;
+}
+.filter-title {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.filter-values {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 /* 
 ---------------------

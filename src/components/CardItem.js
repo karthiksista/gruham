@@ -1,18 +1,9 @@
-import { Button, Card, CardBody, CardFooter, CardImg, CardSubtitle, CardText, CardTitle, Col, Container, Row } from 'reactstrap'
-import React, { useEffect, useState } from 'react'
-import { Router, Switch } from 'react-router'
+import { Button, Card, CardBody, CardFooter, CardTitle, Col, Row } from 'reactstrap'
 
 import { Link } from 'react-router-dom'
+import React from 'react'
 
-function CardItem({ _id, image, title, cardText, address, price, beds, bathrooms, reviews, guests, bedrooms, code }) {
-    const [truncText, setTruncText] = useState('')
-    const [truncText100, setTruncText100] = useState('')
-    const [showMore, setShowMore] = useState(false)
-
-    useEffect(() => {
-        setTruncText(cardText.split(' ').slice(0, 25).join(' '))
-        setTruncText100(cardText.split(' ').slice(0, 100).join(' '))
-    }, [cardText])
+function CardItem({ _id, image, title, address, price, beds, bathrooms, reviews, guests, bedrooms, code }) {
 
     return (
         <>

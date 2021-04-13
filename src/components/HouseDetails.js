@@ -9,20 +9,15 @@ import clean from '../images/clean.svg'
 import home from '../images/home.svg'
 
 function HouseDetails(props) {
-    console.log('HDRENDER', props)
     const _id = props.match.params._id
     const code = props.match.params.code
 
     const [houseDetails, setHouseDetails] = useState([])
     const [houseImages, setHouseImages] = useState([])
 
-
-
     useEffect(() => {
-        // props.parentcallBack(false)
         const getDetails = async () => {
             const results = await axios.get(`${BASE_URL}/country/${code}/${_id}`)
-            console.log(results, 'RESSSH')
             setHouseDetails(results.data.details)
             setHouseImages([
                 {
@@ -34,24 +29,9 @@ function HouseDetails(props) {
                 }
             ])
         }
-
-
         getDetails()
-    }, [])
+    }, [_id])
 
-    const getImages = () => {
-        // return
-        // var images = [
-        //     {
-        //         src: houseDetails.images.picture_url,
-        //         altText: 'Slide 1',
-        //         caption: '',
-        //         header: '',
-        //         key: 1
-        //     }
-        // ]
-        // setHouseImages(images)
-    }
     return (
         <div >
             <Container className='details-container'>
@@ -82,7 +62,7 @@ function HouseDetails(props) {
                             <h4 className='details-title'>{houseDetails.room_type ? houseDetails.room_type : 'N/A'} hosted by {houseDetails.host?.host_name} </h4>
                         </Col>
                         <Col>
-                            {houseDetails.host?.host_has_profile_pic ? <img src={houseDetails.host?.host_picture_url} style={{ height: '50px', width: '50px', borderRadius: '100%', float: 'right' }} /> : ''}
+                            {houseDetails.host?.host_has_profile_pic ? <img src={houseDetails.host?.host_picture_url} style={{ height: '50px', width: '50px', borderRadius: '100%', float: 'right' }} alt='host' /> : ''}
                         </Col>
                     </Row>
                     <Row>
@@ -96,7 +76,7 @@ function HouseDetails(props) {
             <Container className='details-container'>
                 <Row className='row-details-container'>
                     <Col xs='1'>
-                        <span><img className='cleaning-img' src={home} /></span>
+                        <span><img className='cleaning-img' src={home} alt='home' /></span>
                     </Col>
                     <Col xs='11' >
                         <Row>
@@ -114,7 +94,7 @@ function HouseDetails(props) {
                 </Row>
                 <Row>
                     <Col xs='1'>
-                        <span><img className='cleaning-img' src={clean} /></span>
+                        <span><img className='cleaning-img' src={clean} alt='clean' /></span>
                     </Col>
                     <Col xs='11' >
                         <Row>
@@ -131,18 +111,22 @@ function HouseDetails(props) {
                 </Row>
             </Container>
 
-            <Container className='details-container'>
-                <Col>
-                    <Row>
-                        <Col style={{ textAlign: 'left' }}>
-                            <span >
-                                {houseDetails?.space}
-                            </span>
+            {houseDetails?.space ?
+                <Container className='details-container'>
+                    <Col>
+                        <Row>
+                            <Col style={{ textAlign: 'left' }}>
+                                <span >
+                                    {houseDetails?.space}
+                                </span>
 
-                        </Col>
-                    </Row>
-                </Col>
-            </Container>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Container>
+
+                : ''}
+
 
             <Container className='details-container'>
                 <Col>
