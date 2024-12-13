@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "@fontsource/dancing-script";
+/* Romantic script font */
+@import "@fontsource/open-sans";
+/* Clean sans-serif font */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Dancing Script', cursive;
+}
